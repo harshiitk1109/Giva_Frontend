@@ -14,7 +14,7 @@ const App = () => {
     // Function to fetch products from the backend
     const fetchProducts = async () => {
         try {
-            const response = await fetch('http://localhost:5000/products'); // Ensure this points to the correct port
+            const response = await fetch('https://giva-backend-4fsw.onrender.com/products'); // Ensure this points to the correct port
             const data = await response.json();
             setProducts(data);
         } catch (error) {
@@ -26,7 +26,7 @@ const App = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const method = editingId ? 'PUT' : 'POST';
-        const url = editingId ? `http://localhost:5000/products/${editingId}` : 'http://localhost:5000/products';
+        const url = editingId ? `https://giva-backend-4fsw.onrender.com/products/${editingId}` : 'https://giva-backend-4fsw.onrender.com/products';
 
         try {
             const response = await fetch(url, {
@@ -59,7 +59,7 @@ const App = () => {
     // Function to delete a product
     const handleDelete = async (id) => {
         try {
-            await fetch(`http://localhost:5000/products/${id}`, {
+            await fetch(`https://giva-backend-4fsw.onrender.com/products/${id}`, {
                 method: 'DELETE',
             });
             fetchProducts(); // Refresh the product list
